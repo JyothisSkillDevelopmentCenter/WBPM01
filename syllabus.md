@@ -1,6 +1,6 @@
 ## Lesson Plan: Back End Software Development using Python and Starter Kit to Machine Learning (WBPM)
 ### LBS Centre for Science and Technology
-**Course Duration:** 30 Hours (5 Days)  
+**Course Duration:** 30 Hours (10 Days)  
 **Course Fees:** 2000  
 **Eligibility:** BTech / Diploma / BSc Computer/Electronics ongoing Students  
 
@@ -54,24 +54,60 @@ This course is designed to provide a comprehensive introduction to back-end soft
 #### Day 4: Database in Python
 - **Database Overview**: Introduction to MySQL.
 - **SQL Statements**: Creating databases and tables, inserting and selecting data.
-- **Advanced SQL**: Update, delete, order by, where, and, or, not, min, max, count, top, sum, like, in, between, joins.
 - **Practical Session**: Programs to connect Python with MySQL, performing read and write operations.
 
 **Assignment Questions:**
 1. Write a Python program to create a database and a table in MySQL.
 2. Create a program to insert data into a MySQL table and retrieve it using a SELECT query.
 
-#### Day 5: Machine Learning and Fast API with MongoDB
+#### Day 5: Advanced SQL and Data Operations
+- **Advanced SQL**: Update, delete, order by, where, and, or, not, min, max, count, top, sum, like, in, between, joins.
+- **Practical Session**: Advanced SQL queries and data manipulation.
+
+**Assignment Questions:**
+1. Write a Python program to update and delete records in a MySQL table.
+2. Create a program to demonstrate the use of aggregate functions and joins in SQL.
+
+#### Day 6: Introduction to Machine Learning
 - **Machine Learning Introduction**: Differences between ML and traditional programming.
 - **ML Concepts**: Supervised and unsupervised learning, regression, classification, clustering.
-- **Statistics for ML**: Understanding data, mean, median, mode, standard deviation, percentiles, data distribution.
-- **Fast API**: Introduction to Fast API, building a simple API.
-- **MongoDB**: Introduction to MongoDB, connecting Python with MongoDB, CRUD operations.
-- **Practical Session**: Sample programs to understand ML concepts, building APIs with Fast API, MongoDB integration.
+- **Practical Session**: Simple ML programs using Python.
 
 **Assignment Questions:**
 1. Write a Python program to demonstrate a simple linear regression model using a sample dataset.
-2. Create a Fast API application with endpoints to perform CRUD operations on a MongoDB collection.
+2. Create a Python program to classify data using a simple classification algorithm.
+
+#### Day 7: Statistics for Machine Learning
+- **Understanding Data**: Mean, median, mode, standard deviation, percentiles, data distribution.
+- **Practical Session**: Statistical analysis using Python.
+
+**Assignment Questions:**
+1. Write a Python program to calculate the mean, median, and mode of a dataset.
+2. Create a Python program to calculate standard deviation and percentiles of a dataset.
+
+#### Day 8: Advanced Machine Learning Concepts
+- **Advanced ML Techniques**: Feature selection, model evaluation, cross-validation.
+- **Practical Session**: Implementing advanced ML techniques in Python.
+
+**Assignment Questions:**
+1. Write a Python program to demonstrate feature selection and model evaluation.
+2. Create a Python program to perform cross-validation on a machine learning model.
+
+#### Day 9: Introduction to FastAPI
+- **FastAPI Introduction**: Building a simple API with FastAPI.
+- **Practical Session**: Developing and testing FastAPI endpoints.
+
+**Assignment Questions:**
+1. Write a FastAPI application to create a simple CRUD API.
+2. Create a FastAPI endpoint to handle user authentication.
+
+#### Day 10: MongoDB Integration with Python
+- **Introduction to MongoDB**: Connecting Python with MongoDB, CRUD operations.
+- **Practical Session**: MongoDB integration with Python and FastAPI.
+
+**Assignment Questions:**
+1. Create a FastAPI application with endpoints to perform CRUD operations on a MongoDB collection.
+2. Write a Python program to demonstrate data retrieval and manipulation from a MongoDB collection.
 
 ### Method of Evaluation
 - **Multiple Choice Questions (MCQ)**
@@ -81,7 +117,3 @@ This course is designed to provide a comprehensive introduction to back-end soft
 - **Existing Facility**: Computers with Python, MySQL, MongoDB, and Fast API installed.
 - **Additional Tools**: Internet access, development environment setup (e.g., VS Code, PyCharm).
 
-### Internship Programme
-- Internship opportunities will be provided to students who successfully complete the course, allowing them to gain practical experience in a real-world environment.
-
-This lesson plan ensures that students gain a comprehensive understanding of back-end software development using Python and are introduced to essential machine learning concepts, providing a solid foundation for further studies and career opportunities in the field.
