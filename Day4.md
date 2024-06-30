@@ -3,25 +3,30 @@
 #### Database Overview: Introduction to MySQL
 
 **Introduction to MySQL:**
-MySQL is an open-source relational database management system (RDBMS) that uses Structured Query Language (SQL) for database creation, management, and data manipulation. It is widely used in web applications and services due to its reliability, robustness, and ease of use.
+MySQL is a widely-used open-source relational database management system (RDBMS) that uses Structured Query Language (SQL) for accessing and managing data. It is known for its reliability, scalability, and ease of use, making it a popular choice for web applications, data warehousing, and various other data-driven applications.
 
 **Key Features of MySQL:**
-- Cross-platform support (Windows, macOS, Linux)
-- High performance and scalability
-- Strong security features
-- Comprehensive data storage and retrieval capabilities
+- **Cross-Platform Support:** Available on various platforms, including Windows, macOS, Linux.
+- **High Performance:** Optimized for speed and efficiency.
+- **Scalability:** Suitable for small to large-scale applications.
+- **Security:** Provides robust security features, including user authentication and access privileges.
+- **Data Types and Indexing:** Supports various data types and indexing for efficient data retrieval.
 
 **Installing MySQL:**
-1. **Download MySQL:** Go to the [MySQL website](https://dev.mysql.com/downloads/) and download the installer for your operating system.
-2. **Install MySQL:** Follow the installation instructions for your operating system. During the installation, you will set up the root password and configure MySQL server options.
-3. **Verify Installation:** Open a terminal or command prompt and type `mysql --version` to check if MySQL is installed correctly.
+1. **Download MySQL:**
+   - Visit the [MySQL website](https://dev.mysql.com/downloads/) and download the appropriate installer for your operating system.
+2. **Install MySQL:**
+   - Follow the installation instructions specific to your operating system. During installation, you will set up the root password and configure MySQL server options.
+3. **Verify Installation:**
+   - Open a terminal or command prompt and type `mysql --version` to ensure MySQL is installed correctly.
 
 **Connecting to MySQL:**
 You can connect to MySQL using various tools such as MySQL Workbench, command line, or Python (using connectors like `mysql-connector-python`).
 
-#### SQL Statements: Creating databases and tables, inserting and selecting data
+#### SQL Statements: Creating Databases and Tables, Inserting and Selecting Data
 
 **Creating a Database:**
+Creating a database involves defining a new database in MySQL to organize your data.
 **Syntax:**
 ```sql
 CREATE DATABASE database_name;
@@ -32,6 +37,7 @@ CREATE DATABASE school;
 ```
 
 **Creating a Table:**
+Tables are used to store data in a structured format with rows and columns.
 **Syntax:**
 ```sql
 CREATE TABLE table_name (
@@ -53,6 +59,7 @@ CREATE TABLE students (
 ```
 
 **Inserting Data:**
+Inserting data into a table adds new rows of data.
 **Syntax:**
 ```sql
 INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);
@@ -63,6 +70,7 @@ INSERT INTO students (name, age, grade) VALUES ('John Doe', 18, 'A');
 ```
 
 **Selecting Data:**
+Selecting data retrieves data from the table based on specified criteria.
 **Syntax:**
 ```sql
 SELECT column1, column2, ... FROM table_name;
@@ -72,105 +80,22 @@ SELECT column1, column2, ... FROM table_name;
 SELECT * FROM students;
 ```
 
-#### Advanced SQL: Update, delete, order by, where, and, or, not, min, max, count, top, sum, like, in, between, joins
+#### Practical Session: Programs to Connect Python with MySQL, Performing Read and Write Operations
 
-**Updating Data:**
-**Syntax:**
-```sql
-UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;
-```
+**Setting Up the Environment:**
+1. **Install MySQL Connector:**
+   - Use pip to install the MySQL connector for Python:
+     ```sh
+     pip install mysql-connector-python
+     ```
+
+**Connecting to MySQL:**
+Connecting Python to MySQL involves using the `mysql-connector-python` library to establish a connection.
 **Example:**
-```sql
-UPDATE students SET grade = 'B' WHERE name = 'John Doe';
-```
-
-**Deleting Data:**
-**Syntax:**
-```sql
-DELETE FROM table_name WHERE condition;
-```
-**Example:**
-```sql
-DELETE FROM students WHERE name = 'John Doe';
-```
-
-**Ordering Data:**
-**Syntax:**
-```sql
-SELECT column1, column2, ... FROM table_name ORDER BY column1 ASC|DESC;
-```
-**Example:**
-```sql
-SELECT * FROM students ORDER BY age DESC;
-```
-
-**Filtering Data with WHERE:**
-**Syntax:**
-```sql
-SELECT column1, column2, ... FROM table_name WHERE condition;
-```
-**Example:**
-```sql
-SELECT * FROM students WHERE age > 18;
-```
-
-**Logical Operators (AND, OR, NOT):**
-**Example:**
-```sql
-SELECT * FROM students WHERE age > 18 AND grade = 'A';
-```
-
-**Aggregate Functions (MIN, MAX, COUNT, SUM):**
-**Example:**
-```sql
-SELECT MIN(age) FROM students;
-SELECT MAX(age) FROM students;
-SELECT COUNT(*) FROM students;
-SELECT SUM(age) FROM students;
-```
-
-**Pattern Matching with LIKE:**
-**Example:**
-```sql
-SELECT * FROM students WHERE name LIKE 'J%';
-```
-
-**IN Operator:**
-**Example:**
-```sql
-SELECT * FROM students WHERE grade IN ('A', 'B');
-```
-
-**BETWEEN Operator:**
-**Example:**
-```sql
-SELECT * FROM students WHERE age BETWEEN 18 AND 22;
-```
-
-**Joins (INNER, LEFT, RIGHT, FULL):**
-**Example:**
-```sql
-CREATE TABLE courses (
-    course_id INT AUTO_INCREMENT PRIMARY KEY,
-    course_name VARCHAR(100) NOT NULL,
-    student_id INT,
-    FOREIGN KEY (student_id) REFERENCES students(id)
-);
-
-SELECT students.name, courses.course_name
-FROM students
-INNER JOIN courses ON students.id = courses.student_id;
-```
-
-#### Practical Session
-
-**Programs to Connect Python with MySQL and Perform Read and Write Operations:**
-
-1. **Connecting to MySQL:**
 ```python
 import mysql.connector
 
-# Establishing connection
+# Establishing the connection
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -182,7 +107,9 @@ conn = mysql.connector.connect(
 cursor = conn.cursor()
 ```
 
-2. **Creating a Table:**
+**Creating a Table:**
+Use Python to create a table in the database.
+**Example:**
 ```python
 # Creating the students table
 cursor.execute("""
@@ -196,7 +123,9 @@ CREATE TABLE IF NOT EXISTS students (
 conn.commit()
 ```
 
-3. **Inserting Data:**
+**Inserting Data:**
+Insert data into the table using Python.
+**Example:**
 ```python
 # Inserting data into the students table
 cursor.execute("""
@@ -206,7 +135,9 @@ VALUES (%s, %s, %s)
 conn.commit()
 ```
 
-4. **Selecting Data:**
+**Selecting Data:**
+Retrieve data from the table using Python.
+**Example:**
 ```python
 # Retrieving data from the students table
 cursor.execute("SELECT * FROM students")
@@ -215,23 +146,9 @@ for row in rows:
     print(row)
 ```
 
-5. **Updating Data:**
-```python
-# Updating data in the students table
-cursor.execute("""
-UPDATE students SET grade = %s WHERE name = %s
-""", ("B", "Alice"))
-conn.commit()
-```
-
-6. **Deleting Data:**
-```python
-# Deleting data from the students table
-cursor.execute("DELETE FROM students WHERE name = %s", ("Alice",))
-conn.commit()
-```
-
-7. **Closing the Connection:**
+**Closing the Connection:**
+Always close the connection after completing database operations.
+**Example:**
 ```python
 # Closing the connection
 conn.close()
@@ -239,7 +156,7 @@ conn.close()
 
 ### Assignment Questions
 
-1. **Write a Python program to create a database and a table in MySQL.**
+**Question 1: Write a Python program to create a database and a table in MySQL.**
 ```python
 import mysql.connector
 
@@ -276,7 +193,7 @@ conn.commit()
 conn.close()
 ```
 
-2. **Create a program to insert data into a MySQL table and retrieve it using a SELECT query.**
+**Question 2: Create a program to insert data into a MySQL table and retrieve it using a SELECT query.**
 ```python
 import mysql.connector
 
@@ -331,7 +248,7 @@ Create a new Jupyter Notebook and include the following content:
 ### Connecting to MySQL
 You can connect to MySQL using various tools such as MySQL Workbench, command line, or Python (using connectors like `mysql-connector-python`).
 
-## SQL Statements: Creating databases and tables, inserting and selecting data
+## SQL Statements: Creating Databases and Tables, Inserting and Selecting Data
 ### Creating a Database
 - **Syntax:**
 ```sql
@@ -370,8 +287,7 @@ INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);
 ```
 - **Example:**
 ```sql
-INSERT INTO students (name, age, grade) VALUES
- ('John Doe', 18, 'A');
+INSERT INTO students (name, age, grade) VALUES ('John Doe', 18, 'A');
 ```
 
 ### Selecting Data
@@ -382,95 +298,6 @@ SELECT column1, column2, ... FROM table_name;
 - **Example:**
 ```sql
 SELECT * FROM students;
-```
-
-## Advanced SQL: Update, delete, order by, where, and, or, not, min, max, count, top, sum, like, in, between, joins
-### Updating Data
-- **Syntax:**
-```sql
-UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;
-```
-- **Example:**
-```sql
-UPDATE students SET grade = 'B' WHERE name = 'John Doe';
-```
-
-### Deleting Data
-- **Syntax:**
-```sql
-DELETE FROM table_name WHERE condition;
-```
-- **Example:**
-```sql
-DELETE FROM students WHERE name = 'John Doe';
-```
-
-### Ordering Data
-- **Syntax:**
-```sql
-SELECT column1, column2, ... FROM table_name ORDER BY column1 ASC|DESC;
-```
-- **Example:**
-```sql
-SELECT * FROM students ORDER BY age DESC;
-```
-
-### Filtering Data with WHERE
-- **Syntax:**
-```sql
-SELECT column1, column2, ... FROM table_name WHERE condition;
-```
-- **Example:**
-```sql
-SELECT * FROM students WHERE age > 18;
-```
-
-### Logical Operators (AND, OR, NOT)
-- **Example:**
-```sql
-SELECT * FROM students WHERE age > 18 AND grade = 'A';
-```
-
-### Aggregate Functions (MIN, MAX, COUNT, SUM)
-- **Example:**
-```sql
-SELECT MIN(age) FROM students;
-SELECT MAX(age) FROM students;
-SELECT COUNT(*) FROM students;
-SELECT SUM(age) FROM students;
-```
-
-### Pattern Matching with LIKE
-- **Example:**
-```sql
-SELECT * FROM students WHERE name LIKE 'J%';
-```
-
-### IN Operator
-- **Example:**
-```sql
-SELECT * FROM students WHERE grade IN ('A', 'B');
-```
-
-### BETWEEN Operator
-- **Example:**
-```sql
-SELECT * FROM students WHERE age BETWEEN 18 AND 22;
-```
-
-### Joins (INNER, LEFT, RIGHT, FULL)
-- **Example:**
-```sql
-CREATE TABLE courses (
-    course_id INT AUTO_INCREMENT PRIMARY KEY,
-    course_name VARCHAR(100) NOT NULL,
-    student_id INT,
-    FOREIGN KEY (student_id) REFERENCES students(id)
-);
-
-SELECT students.name, courses.course_name
-FROM students
-INNER JOIN courses ON students.id = courses.student_id;
 ```
 
 ## Practical Session
@@ -525,30 +352,14 @@ for row in rows:
     print(row)
 ```
 
-5. **Updating Data:**
-```python
-# Updating data in the students table
-cursor.execute("""
-UPDATE students SET grade = %s WHERE name = %s
-""", ("B", "Alice"))
-conn.commit()
-```
-
-6. **Deleting Data:**
-```python
-# Deleting data from the students table
-cursor.execute("DELETE FROM students WHERE name = %s", ("Alice",))
-conn.commit()
-```
-
-7. **Closing the Connection:**
+5. **Closing the Connection:**
 ```python
 # Closing the connection
 conn.close()
 ```
 
 ## Assignments
-1. Write a Python program to create a database and a table in MySQL.
+1. Write a Python program to create a  database and a table in MySQL.
 ```python
 import mysql.connector
 
